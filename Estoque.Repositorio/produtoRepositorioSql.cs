@@ -1,7 +1,7 @@
 using Estoque.Dominio.Interfaces;
 using Estoque.Dominio.Models;
 using Estoque.Repositorio.Data;
-using Microsoft.EntityFrameworkCore; // Adicione este se não tiver
+using Microsoft.EntityFrameworkCore; 
 
 namespace Estoque.Repositorio;
 
