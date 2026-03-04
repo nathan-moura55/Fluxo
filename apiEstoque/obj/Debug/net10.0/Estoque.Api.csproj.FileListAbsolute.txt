@@ -1,6 +1,5 @@
 C:\Users\hp\Documents\dev\apiEstoque\apiEstoque\bin\Debug\net10.0\appsettings.Development.json
 C:\Users\hp\Documents\dev\apiEstoque\apiEstoque\bin\Debug\net10.0\appsettings.json
-C:\Users\hp\Documents\dev\apiEstoque\apiEstoque\bin\Debug\net10.0\data\produto.json
 C:\Users\hp\Documents\dev\apiEstoque\apiEstoque\bin\Debug\net10.0\Estoque.Api.staticwebassets.endpoints.json
 C:\Users\hp\Documents\dev\apiEstoque\apiEstoque\bin\Debug\net10.0\Estoque.Api.exe
 C:\Users\hp\Documents\dev\apiEstoque\apiEstoque\bin\Debug\net10.0\Estoque.Api.deps.json

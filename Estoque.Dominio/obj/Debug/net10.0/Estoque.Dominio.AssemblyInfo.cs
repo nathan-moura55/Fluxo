@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Estoque.Dominio")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3999defd333f3c095db415defc029900d3976034")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf641e7a0ca1000b8f3199d21f36640e4cba8da2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Estoque.Dominio")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Estoque.Dominio")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
