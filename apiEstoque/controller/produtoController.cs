@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Estoque.Dominio.Models;
 using Estoque.Servicos;
 using Estoque.Dominio.Interfaces;
+using Microsoft.AspNetCore.Http.HttpResults;
+using SQLitePCL;
 
 namespace Estoque.Api.Controllers;
 
@@ -25,11 +27,9 @@ public class ProdutoController : ControllerBase
     {
         try
         {
-            var novoProduto = new Produto(0, nome, quantidade, estoqueMinimo);
+            _estoqueService.AdicionarProduto(nome, quantidade, estoqueMinimo);
 
-            _estoqueService.AdicionarProduto(novoProduto);
-
-            return Ok(novoProduto);
+            return Ok(new { mensagem = "Produto cadastrado com sucesso!" });
         }
         catch (Exception ex)
         {
@@ -54,6 +54,21 @@ public class ProdutoController : ControllerBase
         }
 
     }
+    [HttpPut("{id}/atualizar")]
+    public IActionResult Atualizar(int id, string? nome = null, int? estoqueMinimo = null)
+    {
+        try
+        {
+            _estoqueService.AtualizarProduto(id, nome, estoqueMinimo);
+
+            return Ok(new { mensagem = "Produto atualizado com sucesso!" });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { erro = ex.Message });
+        }
+    }
+
     [HttpPatch("{id}/entrada")]
     public IActionResult Entrada(int id, [FromBody] int qtd)
     {
@@ -64,7 +79,7 @@ public class ProdutoController : ControllerBase
     [HttpPatch("{id}/saida")]
     public IActionResult saida(int id, [FromBody] int qtd)
     {
-        _estoqueService.SaidaEstoque(id, qtd);
+        _estoqueService.RegistrarSaidaEstoque(id, qtd);
         return Ok();
     }
 

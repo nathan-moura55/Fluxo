@@ -1,33 +1,38 @@
+# --- Arquivos Temporários e de Sistema ---
 *.swp
 *.*~
-project.lock.json
 .DS_Store
 *.pyc
 nupkg/
 
-# Visual Studio Code
-.vscode/
+# --- Banco de Dados Local (SQLite) ---
+# Se você quiser que o banco NÃO suba para o GitHub, mantenha a linha abaixo:
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
 
-# Rider
+# --- Visual Studio Code ---
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# --- JetBrains (Rider / IntelliJ) ---
 .idea/
 
-# Visual Studio
+# --- Visual Studio ---
 .vs/
-/.vs/
-
-# Fleet
-.fleet/
-
-# Code Rush
-.cr/
-
-# User-specific files
+[Vv]s/
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
+*.patch
+*.diff
 
-# Build results
+# --- Build e Resultados (O mais importante para .NET) ---
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
@@ -42,9 +47,22 @@ obj/
 Obj/
 Out/
 out/
+[Bb]in/
+[Oo]bj/
+publish/
+
+# --- Logs e Erros ---
 msbuild.log
 msbuild.err
 msbuild.wrn
+*.log
 
-# Node Modules
-node_modules
+# --- Dependências de Pacotes ---
+project.lock.json
+project.assets.json
+node_modules/
+
+# --- Arquivos de Configuração Sensíveis (Segredos) ---
+# Nunca suba arquivos com senhas ou chaves de API
+appsettings.Development.json
+*.usersecrets

@@ -14,15 +14,38 @@ namespace Estoque.Servicos
             _repositorio = repositorio;
         }
 
-        public void AdicionarProduto(Produto produto)
+        public void AdicionarProduto(string nome, int quantidade, int estoqueMinimo)
         {
-            var existente = _repositorio.ObterTodos()
-                                        .FirstOrDefault(p => p.Id == produto.Id || p.Nome.Equals(produto.Nome, StringComparison.OrdinalIgnoreCase));
+            if (_repositorio.ObterTodos().Any(p => p.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase)))
+            {
+                throw new Exception("Produto com esse nome já existe.");
+            }
 
-            if (existente != null)
-                throw new Exception("Produto com mesmo ID ou nome já existe.");
+            var novoProduto = new Produto(0, nome, quantidade, estoqueMinimo);
 
-            _repositorio.Adicionar(produto);
+            _repositorio.Adicionar(novoProduto);
+        }
+
+        public void AtualizarProduto(int id, string? novoNome = null, int? novoMinimo = null)
+        {
+            if (BuscarProduto(id) is Produto produto)
+            {
+                if (!string.IsNullOrWhiteSpace(novoNome))
+                {
+                    produto.AtualizarNome(novoNome);
+                }
+
+                if (novoMinimo.HasValue)
+                {
+                    produto.AtualizarEstoqueMinimo(novoMinimo.Value);
+                }
+
+                _repositorio.Atualizar(produto);
+            }
+            else
+            {
+                throw new Exception("Produto não encontrado.");
+            }
         }
 
         public Produto BuscarProduto(int id)
@@ -40,7 +63,7 @@ namespace Estoque.Servicos
             }
         }
 
-        public void SaidaEstoque(int id, int quantidade)
+        public void RegistrarSaidaEstoque(int id, int quantidade)
         {
             var produto = BuscarProduto(id);
             if (produto != null)

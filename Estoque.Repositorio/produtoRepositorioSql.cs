@@ -16,7 +16,9 @@ public class ProdutoRepositorioSql : IProdutoRepositorio
 
     public IEnumerable<Produto> ObterTodos()
     {
-        return _context.Produtos.ToList();
+        return _context
+        .Produtos
+        .AsNoTracking();
     }
 
     public Produto? ObterPorId(int id) => _context.Produtos.Find(id);
