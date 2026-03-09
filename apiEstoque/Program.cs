@@ -1,16 +1,21 @@
 using Microsoft.EntityFrameworkCore;
 using Estoque.Repositorio.Data;
-using Estoque.Repositorio; 
-using Estoque.Servicos;    
+using Estoque.Repositorio;
+using Estoque.Servicos;
 using Estoque.Dominio.Interfaces;
 using Estoque.Dominio.Models;
+using DotNetEnv;
+
+DotNetEnv.Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
+
 builder.Services.AddControllers();
 
-builder.Services.AddDbContext<EstoqueDbContext>(options => 
-    options.UseSqlite("Data Source=../estoque.db"));
+builder.Services.AddDbContext<EstoqueDbContext>(options =>
+    options.UseNpgsql(connectionString));
 
 builder.Services.AddScoped<IProdutoRepositorio, ProdutoRepositorioSql>();
 builder.Services.AddScoped<ILogRepositorio, LogRepositorioSql>();

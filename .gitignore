@@ -66,3 +66,6 @@ node_modules/
 # Nunca suba arquivos com senhas ou chaves de API
 appsettings.Development.json
 *.usersecrets
+
+# --- variaveis locais .env ---
+.env
