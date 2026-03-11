@@ -36,8 +36,9 @@ Neste projeto, foram aplicadas boas práticas de desenvolvimento para resolver d
 ### 📂 Estrutura do Projeto
 
 * **`/backend`**: Web API em ASP.NET Core com Entity Framework Core e PostgreSQL.
+* **`backend/Estoque.Repositorio`**: Scripts de migração e modelos de dados do banco.
 * **`/web`**: Painel de controle de estoque desenvolvido com React, Vite e Axios para consumo da API.
-* **`/Estoque.Repositorio`**: Scripts de migração e modelos de dados do banco.
+
 
 ---
 
@@ -62,3 +63,4 @@ dotnet run
 cd web
 npm install
 npm run dev
+
