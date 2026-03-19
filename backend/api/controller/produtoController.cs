@@ -1,16 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
 using Estoque.Dominio.Interfaces;
 using Estoque.Dominio.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Estoque.Api.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class ProdutoController : ControllerBase
 {
     private readonly IControleDeEstoque _servico;
-
-    public System.ConsoleColor Color { get; private set; }
 
     public ProdutoController(IControleDeEstoque servico)
     {

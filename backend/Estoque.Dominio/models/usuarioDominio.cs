@@ -1,37 +1,21 @@
 namespace Estoque.Dominio.Models
 {
+    public enum TipoUsuario 
+    { 
+        Pessoa = 0, 
+        Empresa = 1 
+    }
+
     public class Usuario
     {
-        public int Id { get; private set; }
-        public string Nome { get; private set; }
-        public string Cargo {get; private set; }
+        public int Id { get; set; }
+        public string Nome { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Senha { get; set; } = string.Empty; 
+        public TipoUsuario Tipo { get; set; }
 
-        public Usuario(int id, string nome, string cargo)
-        {
-            Id = id;
-            Nome = nome;
-            Cargo = cargo;
-        }
-
-        public void NovoId(int novoId)
-        {
-             Id = novoId;
-        }
-
-        public void NovoNome(string novoNome)
-        {
-             Nome = novoNome;
-        }
-
-        public void NovoCargo(string novoCargo)
-        {
-             Cargo = novoCargo;
-        }
-        
-
-        public override string ToString()
-        {
-            return $"ID: {Id} | NOME: {Nome} | CARGO: {Cargo}";
-        }
+        public string? CPF { get; set; }
+        public string? CNPJ { get; set; }
+        public string? NomeFantasia { get; set; }
     }
 }

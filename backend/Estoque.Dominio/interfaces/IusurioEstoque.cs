@@ -1,11 +1,11 @@
 using Estoque.Dominio.Models;
 
-namespace Estoque.Dominio.Interfaces
+public interface IUsuarioRepositorio
 {
-    public interface IUsuarioRepositorio
-    {
-        Usuario ObterPorId(int id);
-        IEnumerable<Usuario> ObterTodos();
-        void Adicionar(Usuario usuario); 
-    }
+    Usuario? ObterPorId(int id);
+    Usuario? ObterPorEmail(string email); 
+    IEnumerable<Usuario> ObterTodos();
+    void Cadastrar(Usuario usuario); 
+    bool EmailJaExiste(string email); 
+    void Deletar(int id);
 }
